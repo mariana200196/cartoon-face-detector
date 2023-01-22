@@ -1,0 +1,9 @@
+# Folders
+.vs/
+__pycache__/
+test/
+static/images/
+
+# Files
+TODO.txt
+README.md
