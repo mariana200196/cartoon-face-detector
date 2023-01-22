@@ -1,9 +1,0 @@
-# Folders
-.vs/
-__pycache__/
-test/
-static/images/
-Best_*/
-
-# Files
-TODO.txt

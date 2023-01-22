@@ -1,3 +1,5 @@
+# SERVER (API)
+
 ## Setup
 ```
 conda install -c conda-forge fastapi
@@ -24,3 +26,10 @@ uvicorn main:app --reload
 ```
 
 If the start-up was successful, you should see `Application startup complete` printed in the command line. You can check that Uvicorn is running by entering http://localhost:8000/docs into your browser. 
+
+# CLIENT (App)
+
+## Setup
+```
+npm start
+```

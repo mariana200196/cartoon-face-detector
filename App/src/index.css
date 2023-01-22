@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower');
+@import url('https://fonts.googleapis.com/css2?family=Butterfly+Kids');
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Indie Flower', 'Butterfly Kids', 'Noto Sans JP', sans-serif;
+}
+
+body {
+  margin: 0;
+  background-color: whitesmoke;
+}
+
+h1 {
+  text-align:center;
+  font-size: 64px;
+}

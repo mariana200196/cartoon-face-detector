@@ -1,0 +1,21 @@
+.container-carousel {
+    background-color: aliceblue;
+}
+
+.portrait {
+    background-color: white;
+    height: 150px;
+    width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.portrait-label {
+    background-color: lightgoldenrodyellow;
+    height: 30px;
+    width: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}

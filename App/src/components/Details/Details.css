@@ -1,0 +1,12 @@
+.container-details {
+    background-color: lightgoldenrodyellow;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.details-portrait {
+    background-color: white;
+    flex: 1;
+    margin: 1%;
+    text-align: center;
+}
