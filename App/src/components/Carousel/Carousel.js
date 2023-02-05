@@ -66,7 +66,7 @@ function Carousel(props) {
                     <Card className="portrait">
                         <img
                         id={k} 
-                        src={"http://localhost:8000/getprediction/?id=" + props.client + "&fileName=" + k + ".png"}
+                        src={"http://" + process.env.REACT_APP_SERVER_DOMAIN + ":8000/getprediction/?id=" + props.client + "&fileName=" + k + ".png"}
                         style={{maxHeight:"100%", maxWidth:"100%", cursor:"pointer", boxShadow:"none"}} 
                         onDragStart={handleDragStart} 
                         role="presentation"

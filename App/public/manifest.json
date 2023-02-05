@@ -1,6 +1,6 @@
 {
-  "short_name": "Cartoon Face Detector",
-  "name": "Create Cartoon Face Detector (React App)",
+  "short_name": "CartoonFace Predictor",
+  "name": "Create CartoonFace Predictor (React App)",
   "icons": [
     {
       "src": "favicon.ico",

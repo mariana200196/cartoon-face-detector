@@ -17,7 +17,7 @@ const UploadImage = (props) => {
             <img alt="Not found. Please upload a valid image. Accepted file extensions are .png, .jpg, and .jpeg ." 
             width={"100%"} 
             src={URL.createObjectURL(selectedImage)}
-            style={{"max-height": "350px", "width": "auto"}} />
+            style={{"maxHeight": "350px", "width": "auto"}} />
             // <br />
             // <button onClick={()=>setSelectedImage(null)}>Remove</button>
             // </div>

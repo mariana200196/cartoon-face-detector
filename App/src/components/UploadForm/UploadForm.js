@@ -42,7 +42,7 @@ function UploadForm(props) {
             const formData = new FormData();
             formData.append("file", image);
 
-            const response = await fetch("http://localhost:8000/predict/?confidence=" + confThreshold + "&noduplicates=" + noDuplicate,
+            const response = await fetch("http://" + process.env.REACT_APP_SERVER_DOMAIN + ":8000/predict/?confidence=" + confThreshold + "&noduplicates=" + noDuplicate,
             {
                 method: "POST", 
                 body: formData
@@ -60,7 +60,7 @@ function UploadForm(props) {
             setError(error);
         }
 
-        // fetch("http://localhost:8000/").then(response => {
+        // fetch("http://" + process.env.REACT_APP_SERVER_DOMAIN + ":8000/").then(response => {
         //     return response.json();
         // }).then(data => {
         //     props.onResponse(data.result);
@@ -128,5 +128,3 @@ function UploadForm(props) {
 }
 
 export default UploadForm;
-//<UploadButton className="upload-button"></UploadButton>
-//import 'toolcool-range-slider';  <label>Confidence Threshold</label><toolcool-range-slider min="0.5" max="1.0" value="0.7" step="0.1"></toolcool-range-slider>

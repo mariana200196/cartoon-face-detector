@@ -10,8 +10,8 @@ function Details(props) {
     let bboxConf = props.bboxConf;
     let gender = props.gender;
     let genderConf = props.genderConf;
-    let bboxImagePath = "http://localhost:8000/getprediction/?id=" + props.client + "&fileName=" + props.imageName + "_bbox.png";
-    let gradcamImagePath = "http://localhost:8000/getprediction/?id=" + props.client + "&fileName=" + props.imageName + "_gradcam.png";
+    let bboxImagePath = "http://" + process.env.REACT_APP_SERVER_DOMAIN + ":8000/getprediction/?id=" + props.client + "&fileName=" + props.imageName + "_bbox.png";
+    let gradcamImagePath = "http://" + process.env.REACT_APP_SERVER_DOMAIN + ":8000/getprediction/?id=" + props.client + "&fileName=" + props.imageName + "_gradcam.png";
 
     // const [clientId, setClientId] = useState(null);
     // const [selectedImage, setSelectedImage] = useState(null);
@@ -29,8 +29,8 @@ function Details(props) {
         // setBboxConf(props.bboxConf);
         // setGender(props.gender);
         // setGenderConf(props.genderConf);
-        // setBboxImagePath("http://localhost:8000/getprediction/?id=" + clientId + "&fileName=" + selectedImage + "_bbox.png");
-        // setGradCamImagePath("http://localhost:8000/getprediction/?id=" + clientId + "&fileName=" + selectedImage + "_gradcam.png");
+        // setBboxImagePath("http://" + process.env.REACT_APP_SERVER_DOMAIN + ":8000/getprediction/?id=" + clientId + "&fileName=" + selectedImage + "_bbox.png");
+        // setGradCamImagePath("http://" + process.env.REACT_APP_SERVER_DOMAIN + ":8000/getprediction/?id=" + clientId + "&fileName=" + selectedImage + "_gradcam.png");
     } catch (error) {
         console.error(error);
         console.log("Make a prediction to see detection and classification predictions.");
