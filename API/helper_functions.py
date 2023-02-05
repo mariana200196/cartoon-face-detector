@@ -39,7 +39,7 @@ async def trace_bbox(metadata_bbox, portraits_list, film_frame, id):
     return
 
 def generate_id():
-    id = random.randint(0,10)
+    id = random.randint(0,1000)
     dir = f"./static/images/{id}/out"
     if os.path.exists(dir):
         shutil.rmtree(f"./static/images/{id}")

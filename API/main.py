@@ -15,10 +15,12 @@ from gender_classification import classify_gender
 from gradCAM import apply_gradCAM
 
 app = FastAPI()
-app.mount("/static", StaticFiles(directory="static"), name="static")
+current_dir = os.getcwd() # make sure the directory path to the static file is reachable from the current_dir
+app.mount("/static", StaticFiles(directory='static'), name="static")
 
 origins = [
-    "http://localhost:3000"
+    "http://localhost:3000",
+    "http://ec2-3-83-155-104.compute-1.amazonaws.com:3000"
 ]
 
 app.add_middleware(
@@ -80,7 +82,7 @@ async def predict(file: UploadFile = File(...), confidence: float = 0.7, nodupli
     # Merge detection and gender predictions
     predictions_list = []
     for i, prediction in enumerate(metadata_bbox):
-        predictions_list.append(prediction | metadata_gender[i])
+        predictions_list.append({**prediction, **metadata_gender[i]}) # prediction | metadata_gender[i] for Python >= 3.9
 
     print("Sending predictions to client.")
     return {"result": predictions_list}

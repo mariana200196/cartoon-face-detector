@@ -28,7 +28,7 @@ def classify_gender(id):
             conf = torch.max(F.softmax(outputs, dim=1)).item()
             path, _ = dataloader.dataset.samples[i]
             path = os.path.normpath(path)
-            face_id = path.split("\\")[-1].split(".png")[0]
+            face_id = path.split("/")[-1].split(".png")[0]
             for j in range(inputs.size()[0]):
                 gender = class_names[preds[j]]
                 genderConf = "{:.2f}".format(round(conf * 100, 2))
