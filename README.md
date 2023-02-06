@@ -1,6 +1,6 @@
 CartoonFace Predictor is an AI that detects the presence of animated faces in imgaes and predicts their gender. Try it out [here](http://ec2-3-83-155-104.compute-1.amazonaws.com:3000/).
 
-![Demo](https://github.com/mariana200196/cartoon-face-detector/blob/main/App/demoscreenshot.png)
+![Demo](https://github.com/mariana200196/cartoon-face-detector/blob/main/App/demoscreenshot.PNG?raw=true)
 
 ## Dependencies
 - python3 (including development tools)
