@@ -1,35 +1,33 @@
-# SERVER (API)
+CartoonFace Predictor is an AI that detects the presence of animated faces in imgaes and predicts their gender. Try it out [here](http://ec2-3-83-155-104.compute-1.amazonaws.com:3000/).
 
-## Setup
-```
-conda install -c conda-forge fastapi
-conda install -c conda-forge uvicorn
-conda install -c conda-forge python-multipart
-conda install pytorch torchvision torchaudio cpuonly -c pytorch
-conda install -c anaconda cython
-install Visual Studio with C/C++ so that gcc and g++ get installed (check in command line by running gcc -v and g++ -v)
-python -m pip install 'git+https://github.com/facebookresearch/detectron2.git'
-conda install -c menpo opencv
-conda install -c conda-forge aiohttp
-conda install -c anaconda aiofiles
+![Demo](https://github.com/mariana200196/cartoon-face-detector/blob/main/App/demoscreenshot.png)
 
-(conda install astunparse numpy ninja pyyaml setuptools cmake cffi typing_extensions future six requests dataclasses)
-(conda install mkl mkl-include)
-```
+## Dependencies
+- python3 (including development tools)
+- fastapi
+- uvicorn
+- gunicorn
+- python-multipart
+- opencv (opencv-python-headless==4.6.0.66)
+- aiohttp
+- aiofiles
+- gcc and g++ (on Windows install Visual Studio with C/C++ add-on)
+- Cython
+- PyTorch (pip3 install torch==1.10.0+cpu torchvision==0.11.0+cpu torchaudio==0.10.0 -f https://download.pytorch.org/whl/torch_stable.html)
+- [detectron2](https://github.com/facebookresearch/detectron2) (python3 -m pip install detectron2 -f https://dl.fbaipublicfiles.com/detectron2/wheels/cpu/torch1.10/index.html)
+- [grad-cam](https://github.com/jacobgil/pytorch-grad-cam)
+- Node.js (>= 16) and npm
 
-## Starting the Web Server
+## Start server (API)
+Navigate to root directory (where main-py is) and run `gunicorn main:app --workers 4 --worker-class uvicorn.workers.UvicornWorker --bind 0.0.0.0:8000`.
 
-Navigating to the home directory via the command line (Anaconda) and run
+If the start-up is successful, `Application startup complete` will be printed in the command line.
 
-```
-uvicorn main:app --reload
-```
+Check that the server is reachable at `http://localhost:8000/docs`.
 
-If the start-up was successful, you should see `Application startup complete` printed in the command line. You can check that Uvicorn is running by entering http://localhost:8000/docs into your browser. 
+## Start client (App)
+Navigate to root directory (where package.json is) and install required packages with `npm install`.
 
-# CLIENT (App)
+Start the app by running `npm start`.
 
-## Setup
-```
-npm start
-```
+Check that the webpage is reachable at `http://localhost:3000`.
