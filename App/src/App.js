@@ -1,5 +1,3 @@
-//import 'bootstrap/dist/css/bootstrap.min.css'
-//import { Spinner, Button } from 'react-bootstrap';
 import React, {useState} from "react";
 import UploadForm from "./components/UploadForm/UploadForm";
 import Carousel from "./components/Carousel/Carousel";

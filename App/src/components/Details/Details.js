@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import "./Details.css";
+import styles from "./Details.module.css";
 import Card from "../UI/Card";
 
 function Details(props) {
@@ -37,14 +37,14 @@ function Details(props) {
     }
 
     return (
-        <Card className="container-details">
-            <Card className="details-portrait">
+        <Card className={styles.containerDetails}>
+            <Card className={styles.detailsPortrait}>
                 <h3>Face Detection</h3>
                 <img src={bboxImagePath} alt="Loading..."></img>
                 <p>Prediction: {bbox}</p>
                 <p>Confidence: {bboxConf}</p>
             </Card>
-            <Card className="details-portrait">
+            <Card className={styles.detailsPortrait}>
                 <h3>Gender Classification</h3>
                 <img src={gradcamImagePath} alt="Loading..."></img>
                 <p>Prediction: {gender}</p>

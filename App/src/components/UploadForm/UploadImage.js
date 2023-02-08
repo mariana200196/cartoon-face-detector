@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 
 const UploadImage = (props) => {
   const [selectedImage, setSelectedImage] = useState(null);
-  const hiddenBrowseButton = React.useRef(null) // to style the Browse button
+  const hiddenBrowseButton = useRef(null) // to style the Browse button
 
   function imageUploadHandler(event) {
     console.log(event.target.files[0]);

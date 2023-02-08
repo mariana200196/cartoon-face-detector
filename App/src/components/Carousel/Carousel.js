@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import "./Carousel.css";
+import styles from "./Carousel.module.css";
 import Card from "../UI/Card";
 import AliceCarousel from 'react-alice-carousel';
 import 'react-alice-carousel/lib/alice-carousel.css';
@@ -48,7 +48,7 @@ function Carousel(props) {
     function getGender(k) {
         if (Object.keys(props.faceList).length > 0) {
             let gender = props.faceList[k].gender;
-            return (<Card className="portrait-label">
+            return (<Card className={styles.portraitLabel}>
             <p>{gender}</p>
             </Card>);
         } else {
@@ -63,7 +63,7 @@ function Carousel(props) {
         ks.forEach(function(k, i) { 
             l.push(
                 <div>
-                    <Card className="portrait">
+                    <Card className={styles.portrait}>
                         <img
                         id={k} 
                         src={"http://" + process.env.REACT_APP_SERVER_DOMAIN + ":8000/getprediction/?id=" + props.client + "&fileName=" + k + ".png"}
@@ -93,7 +93,7 @@ function Carousel(props) {
     };
 
     return (
-        <Card className="container-carousel">
+        <Card className={styles.containerCarousel}>
                 <AliceCarousel 
                 mouseTracking 
                 items={items} 
@@ -102,11 +102,6 @@ function Carousel(props) {
                 disableButtonsControls="true" 
                 activeIndex={currIndex} />
         </Card>
-/*         <div>
-            <Card className="container">
-                {imageKeys.map(k => <img src={images[k]} key={k} alt="Not found" />)}
-            </Card>
-        </div> */
     );
 }
 

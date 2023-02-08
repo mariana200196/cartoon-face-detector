@@ -1,10 +1,9 @@
 import React, {useState, useEffect} from "react";
-import "./UploadForm.css";
+import styles from "./UploadForm.module.css";
 import Card from "../UI/Card";
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 import UploadImage from "./UploadImage";
-import UploadButton from "../UploadButton/UploadButton";
 
 function UploadForm(props) {
     const [image, setImage] = useState(null);
@@ -97,9 +96,9 @@ function UploadForm(props) {
     }
 
     return (
-        <Card className="container">
-            <form className="container-form" onSubmit={submitHandler}>
-                <Card className="container-description">
+        <Card className={styles.container}>
+            <form className={styles.containerForm} onSubmit={submitHandler}>
+                <Card className={styles.containerDescription}>
                 CartoonFace Predictor is an AI that detects the presence
                 of animated faces in imgaes and predicts their gender.
                 Try it out by uploading a film frame from any Disney or 
@@ -119,10 +118,10 @@ function UploadForm(props) {
                 <br />
                 <br />
                 <div style={{"textAlign": "center"}}>
-                    <button type="submit" className="upload-button">{buttonTxt}</button>
+                    <button type="submit" className={styles.uploadButton}>{buttonTxt}</button>
                 </div>
             </form>
-            <Card className="container-image">
+            <Card className={styles.containerImage}>
                 <UploadImage onCheckImage={checkImageUpload}></UploadImage>
             </Card>
         </Card>
