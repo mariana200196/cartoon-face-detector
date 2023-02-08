@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import "./UploadForm.css";
 import Card from "../UI/Card";
 import Slider from 'rc-slider';
@@ -12,6 +12,14 @@ function UploadForm(props) {
     const [noDuplicate, setNoDuplicate] = useState(true);
     const [buttonTxt, setButtonTxt] = useState("Make Predictions");
     const [error, setError] = useState(null);
+
+    // to set a default imagewhen the website first loads
+    useEffect(() => {
+        fetch('lightyear.jpg').then(res => res.blob()).then(blob => { 
+            let defaultImage = new File([blob], "default-image.jpg",  {type: "image/jpeg"});
+            setImage(defaultImage);
+        })
+    }, []);
 
     function confThresholdHandler(value) {
         setConfThreshold(value); 
@@ -59,12 +67,6 @@ function UploadForm(props) {
             setButtonTxt("Error!\nCheck your browser console.");
             setError(error);
         }
-
-        // fetch("http://" + process.env.REACT_APP_SERVER_DOMAIN + ":8000/").then(response => {
-        //     return response.json();
-        // }).then(data => {
-        //     props.onResponse(data.result);
-        // });
     }
 
     function submitHandler(e) {
