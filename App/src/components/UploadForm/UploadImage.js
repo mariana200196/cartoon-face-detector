@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import styles from "./UploadForm.module.css";
 
 const UploadImage = (props) => {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -12,21 +13,19 @@ const UploadImage = (props) => {
   }
 
   function showImage() {
-    let chosenImage = <img alt="default-img.jpg" 
-                           width={"100%"} 
+    let chosenImage = <img alt="default-img.jpg"
                            src="lightyear.jpg"
-                           style={{"maxHeight": "350px", "width": "auto"}} />
+                           style={{maxHeight: 250}} />
     if (selectedImage) {
-      chosenImage = <img alt="Not found. Please upload a valid image. Accepted file extensions are .png, .jpg, and .jpeg." 
-                         width={"100%"} 
+      chosenImage = <img alt="Not found. Please upload a valid image. Accepted file extensions are .png, .jpg, and .jpeg."  
                          src={URL.createObjectURL(selectedImage)}
-                         style={{"maxHeight": "350px", "width": "auto"}} />
+                         style={{maxHeight: 250}} />
     }
     return chosenImage;
   }
 
   return (
-    <div style={{"textAlign":"center"}}>
+    <div className={styles.containerImageDiv}>
         {showImage()}   
         <br /> 
         <input
@@ -36,7 +35,7 @@ const UploadImage = (props) => {
           onChange={imageUploadHandler}
           style={{"display": "none"}}
         />
-        <button onClick={() => hiddenBrowseButton.current.click()}>Browse...</button>
+        <button style={{width: 80, marginTop: "1%"}} onClick={() => hiddenBrowseButton.current.click()}>Browse...</button>
     </div>
   );
 };

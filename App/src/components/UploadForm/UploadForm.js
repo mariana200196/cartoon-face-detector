@@ -104,19 +104,17 @@ function UploadForm(props) {
                 Try it out by uploading a film frame from any Disney or 
                 Pixar movie!
                 </Card>
-                <br />
-                <label style={{"float":"left"}}>Confidence Threshold</label>
-                <Slider style={{"width": 300, "float":"left", "marginLeft": 30}} 
-                min={50} max={100} defaultValue={70} 
-                marks={{ 50:50, 60:60, 70:70, 80:80, 90:90, 100:100 }} 
-                step={5} onAfterChange={confThresholdHandler} />
-                <br />
-                <br />
-                <br />
-                <label>Remove Duplicate Detections</label>
-                <input style={{ "marginLeft": 30}} type="checkbox" defaultChecked onChange={noDuplicateHandler} />
-                <br />
-                <br />
+                <div className={styles.containerConf}>
+                    <label className={styles.confLabel}>Confidence Threshold</label>
+                    <Slider className={styles.confSlider}
+                    min={50} max={100} defaultValue={70} 
+                    marks={{ 50:50, 60:60, 70:70, 80:80, 90:90, 100:100 }} 
+                    step={5} onAfterChange={confThresholdHandler} />
+                </div>
+                <div className={styles.containerConf}>
+                    <label>Remove Duplicate Detections</label>
+                    <input style={{"margin-left": "5%"}} type="checkbox" defaultChecked onChange={noDuplicateHandler} />
+                </div>
                 <div style={{"textAlign": "center"}}>
                     <button type="submit" className={styles.uploadButton}>{buttonTxt}</button>
                 </div>

@@ -21,13 +21,13 @@ import 'react-alice-carousel/lib/alice-carousel.css';
 
 function Carousel(props) {
     
-    const [indexDic, setIndexDic] = useState({});
     let iDic = {};
     const [prevHighlighted, setPrevHighlighted] = useState(null);
     const [currIndex, setCurrIndex] = useState(0);
 
     function showImageDetails(e, imageName) {
-        // does this depend on previous state?
+        // handle when new image has fewer predictions (e.g. 3) and 
+        // previously a higher numbered face (e.g. >= 4th in carousel) was selected
         try {
             if (prevHighlighted) {
                 document.getElementById(prevHighlighted).style.boxShadow = "none"; 
@@ -37,11 +37,11 @@ function Carousel(props) {
             console.log("document.getElementById(prevHighlighted) no longer exists.")
             setPrevHighlighted(null);
         }
+        // highligh the currently selected face
         e.target.style.boxShadow = "0 2px 20px gold";
         setPrevHighlighted(imageName);
         props.onImageSelection(imageName);
 
-        //setCurrIndex(parseInt(imageName.replace('.png','').replace('face','')));
         setCurrIndex(iDic[imageName])
     }
 
@@ -59,7 +59,7 @@ function Carousel(props) {
     function populateCarousel(ks) {
         let l = [];
         iDic = {};
-        //make getting the gender less hacky
+
         ks.forEach(function(k, i) { 
             l.push(
                 <div>
@@ -77,19 +77,22 @@ function Carousel(props) {
             );
             iDic[k] = i; 
         });
-        //setIndexDic(iDic);
+
         return l;
     }
 
     const handleDragStart = (e) => e.preventDefault();
     const items = populateCarousel(Object.keys(props.faceList));
+    // each face requires at least 160 px of space
     const responsive = {
         0: { items: 1 },
-        320: {items: 2 },
-        470: {items: 3 },
-        620: {items: 4 },
-        770: { items: 5 },
-        920: { items: 6 }
+        340: {items: 2 },
+        500: {items: 3 },
+        660: {items: 4 },
+        820: { items: 5 },
+        980: { items: 6 },
+        1140: { items: 7 },
+        1300: { items: 8 }
     };
 
     return (

@@ -1,12 +1,14 @@
 .containerDetails {
-    background-color: lightgoldenrodyellow;
     display: flex;
+    flex-wrap: wrap;
+    background-color: lightgoldenrodyellow;
     justify-content: space-evenly;
 }
 
 .detailsPortrait {
-    background-color: white;
     flex: 1;
+    flex-wrap: nowrap;
+    background-color: white;
     margin: 1%;
     text-align: center;
 }
